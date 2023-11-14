@@ -1,0 +1,55 @@
+<section [ngClass]="{ loading }">
+  <article class="modal-header">
+    <span class="fs-5">Contrato > Desconto</span>
+    <button class="btn-close" (click)="dismissModal()"></button>
+  </article>
+
+  <article class="modal-body">
+    <form [formGroup]="form" class="d-flex flex-column gap-3">
+      <fieldset [disabled]="loading" class="row gap-3 gap-md-0">
+        <fieldset class="col-12 col-md-6">
+          <label class="form-label" for="name">Name</label>
+          <input id="name" formControlName="name" class="form-control" />
+        </fieldset>
+
+        <fieldset class="col-12 col-md-6">
+          <label class="form-label" for="gender">Gender</label>
+          <select class="form-select" id="gender" formControlName="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </fieldset>
+      </fieldset>
+
+      <fieldset [disabled]="loading" class="row gap-3 gap-md-0">
+        <fieldset class="col-12 col-md-6">
+          <label class="form-label" for="username">Username</label>
+          <input id="username" formControlName="username" class="form-control" />
+        </fieldset>
+
+        <fieldset class="col-12 col-md-6">
+          <label class="form-label" for="phone">Phone</label>
+          <input class="form-control" id="phone" formControlName="phone" />
+        </fieldset>
+      </fieldset>
+
+      <fieldset [disabled]="loading" class="row gap-3 gap-md-0">
+        <fieldset class="col-12">
+          <label class="form-label" for="email">email</label>
+          <input type="email" class="form-control" id="email" formControlName="email" />
+        </fieldset>
+      </fieldset>
+
+      <fieldset *ngIf="!editingUser" [disabled]="loading" class="row gap-3 gap-md-0">
+        <fieldset class="col-12">
+          <label class="form-label" for="password">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password" />
+        </fieldset>
+      </fieldset>
+    </form>
+  </article>
+
+  <article class="modal-footer">
+    <button (click)="save()" class="btn btn-success px-5">Salvar</button>
+  </article>
+</section>

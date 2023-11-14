@@ -1,0 +1,28 @@
+<section class="theme-login d-flex flex-column justify-content-center gap-2 vh-100">
+  <article class="d-flex justify-content-center align-items-center mb-2">
+    <div class="card col-11 col-sm-8 col-md-6 col-lg-4">
+      <div class="card-header d-flex flex-column align-items-center justify-content-center py-3 border-bottom-0">
+        <div class="mt-n5">
+          <img src="assets\img\pages\login\user-login.svg" alt="User Login" />
+        </div>
+        <span>Login to the System</span>
+      </div>
+
+      <form class="pb-5 pt-4 px-2 px-md-3 d-flex flex-column gap-3">
+        <fieldset [disabled]="loading">
+          <label class="form-label" for="username">Username</label>
+          <input id="username" [(ngModel)]="userLogin.username" name="username" class="form-control" />
+        </fieldset>
+
+        <fieldset [disabled]="loading">
+          <label class="form-label" for="password">Password</label>
+          <input type="password" id="password" [(ngModel)]="userLogin.password" name="password" class="form-control" />
+        </fieldset>
+
+        <button [disabled]="loading" type="submit" class="btn btn-dark" (click)="authenticate()">
+          {{ loading ? 'Entering...' : 'login' }}
+        </button>
+      </form>
+    </div>
+  </article>
+</section>

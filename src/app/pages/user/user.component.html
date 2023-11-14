@@ -1,0 +1,87 @@
+<section [ngClass]="{ loading }">
+  <article>
+    <fieldset [disabled]="loading" class="d-flex gap-3 align-items-end pb-4 px-2">
+      <div class="col-10 col-md-6">
+        <label for="filter" class="col-form-label">Search</label>
+        <input id="filter" class="form-control" [formControl]="filter" />
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-outline-primary d-flex align-items-center justify-content-center gap-2 col"
+        (click)="syncUsers()"
+        title="Sync 10 Users"
+      >
+        <span class="fw-bold">
+          <fa-icon [icon]="icons.faSync"></fa-icon>
+        </span>
+        <span class="d-none d-md-block">Sync 10 Users</span>
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-outline-primary d-flex align-items-center justify-content-center gap-2 col"
+        (click)="openModal()"
+        title="New User"
+      >
+        <span class="fw-bold">+</span>
+        <span class="d-none d-md-block">New User</span>
+      </button>
+    </fieldset>
+  </article>
+
+  <article class="overflow-auto">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Gender</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngIf="!(users$ | async)?.length" class="justify-content-center">
+          <td colspan="6">
+            <div class="d-flex justify-content-center">
+              <span *ngIf="loading; else notFound">Loading...</span>
+              <ng-template #notFound>No users found</ng-template>
+            </div>
+          </td>
+        </tr>
+
+        <tr *ngFor="let user of users$ | async">
+          <td>
+            <ngb-highlight [result]="user.name" [term]="filter.value"></ngb-highlight>
+          </td>
+
+          <td>
+            <ngb-highlight [result]="user.username" [term]="filter.value"></ngb-highlight>
+          </td>
+
+          <td>
+            <ngb-highlight [result]="user.gender" [term]="filter.value"></ngb-highlight>
+          </td>
+
+          <td>
+            <ngb-highlight [result]="user.phone" [term]="filter.value"></ngb-highlight>
+          </td>
+
+          <td>
+            <div class="d-flex align-items-center gap-2">
+              <button [disabled]="loading" (click)="edit(user)" class="btn" title="Edit User">
+                <fa-icon class="text-success" [icon]="icons.faEdit"></fa-icon>
+              </button>
+
+              <button [disabled]="loading" (click)="remove(user)" class="btn" title="Remove User">
+                <fa-icon class="text-danger" [icon]="icons.faTrash"></fa-icon>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</section>

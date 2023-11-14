@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+$enable-negative-margins: true;
+@import 'bootstrap/scss/bootstrap';
+
+.ng-touched.ng-invalid:not(form) {
+  border-color: red;
+}

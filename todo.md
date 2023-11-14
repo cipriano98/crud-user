@@ -20,6 +20,6 @@ Como sugestão para consumo indicamos a api : https://randomuser.me/
 Utilize práticas de programação que achar necessário, `o projeto deve ser entregue em Docker`. Após finalizar disponibilizar no git o Docker file, e `criar um “read.me”` com as instruções para subir o Docker e rodar a aplicação.
 
 - [x] Adicionar ao docker
-- [ ] Compartilhar com os usuários lenon51 e edugrms
+- [x] Compartilhar com os usuários lenon51 e edugrms
 
 `Extra: De que forma o sistema pode escalar com a arquitetura planejada? `

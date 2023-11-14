@@ -1,32 +1,34 @@
 <section [ngClass]="{ loading }">
   <article>
     <fieldset [disabled]="loading" class="d-flex gap-3 align-items-end pb-4 px-2">
-      <div class="col-10 col-md-6">
+      <div class="col-7 col-md-6">
         <label for="filter" class="col-form-label">Search</label>
         <input id="filter" class="form-control" [formControl]="filter" />
       </div>
 
-      <button
-        type="button"
-        class="btn btn-outline-primary d-flex align-items-center justify-content-center gap-2 col"
-        (click)="syncUsers()"
-        title="Sync 10 Users"
-      >
-        <span class="fw-bold">
-          <fa-icon [icon]="icons.faSync"></fa-icon>
-        </span>
-        <span class="d-none d-md-block">Sync 10 Users</span>
-      </button>
+      <div class="col d-flex gap-3 align-items-end">
+        <button
+          type="button"
+          class="btn btn-outline-primary d-flex align-items-center justify-content-center gap-2 col"
+          (click)="syncUsers()"
+          title="Sync 10 Users"
+        >
+          <span class="fw-bold">
+            <fa-icon [icon]="icons.faSync"></fa-icon>
+          </span>
+          <span class="d-none d-md-block">Sync 10 Users</span>
+        </button>
 
-      <button
-        type="button"
-        class="btn btn-outline-primary d-flex align-items-center justify-content-center gap-2 col"
-        (click)="openModal()"
-        title="New User"
-      >
-        <span class="fw-bold">+</span>
-        <span class="d-none d-md-block">New User</span>
-      </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary d-flex align-items-center justify-content-center gap-2 col"
+          (click)="openModal()"
+          title="New User"
+        >
+          <span class="fw-bold">+</span>
+          <span class="d-none d-md-block">New User</span>
+        </button>
+      </div>
     </fieldset>
   </article>
 
